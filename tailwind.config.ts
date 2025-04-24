@@ -25,9 +25,9 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         editor: {
-          bg: "#1A1F2C",
+          bg: "#FFFFFF",
           accent: "#9b87f5",
-          text: "#F1F0FB",
+          text: "#333333",
           muted: "#9F9EA1",
         },
         primary: {
