@@ -1,8 +1,8 @@
 
-import Editor from '@/components/Editor/Editor';
+import ReviewEditor from "@/components/ReviewEditor/ReviewEditor";
 
 const Index = () => {
-  return <Editor />;
+  return <ReviewEditor />;
 };
 
 export default Index;
