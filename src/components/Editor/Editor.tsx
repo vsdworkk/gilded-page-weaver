@@ -39,6 +39,19 @@ const Editor = () => {
     }
   };
 
+  // Effect to handle placeholder text visibility
+  useEffect(() => {
+    const editorElement = editorRef.current;
+    if (!editorElement) return;
+
+    // Add a class to control placeholder visibility based on content
+    if (content === '') {
+      editorElement.classList.add('empty');
+    } else {
+      editorElement.classList.remove('empty');
+    }
+  }, [content]);
+
   useEffect(() => {
     const saveContent = () => {
       // Simulate saving content
@@ -60,13 +73,12 @@ const Editor = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-editor-bg to-editor-bg/90 text-editor-text p-8">
       <Toolbar onFormat={handleFormat} />
-      <div className="max-w-3xl mx-auto mt-24 mb-16">
+      <div className="max-w-3xl mx-auto mt-24 mb-16 relative">
         <div
           ref={editorRef}
           contentEditable
           onInput={handleInput}
-          className="min-h-[70vh] focus:outline-none font-inter prose prose-invert prose-p:text-lg prose-p:leading-relaxed prose-headings:font-playfair prose-headings:font-normal prose-blockquote:border-editor-accent prose-blockquote:bg-editor-accent/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1 px-6"
-          placeholder="Start writing something beautiful..."
+          className="min-h-[70vh] focus:outline-none font-inter prose prose-invert prose-p:text-lg prose-p:leading-relaxed prose-headings:font-playfair prose-headings:font-normal prose-blockquote:border-editor-accent prose-blockquote:bg-editor-accent/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1 px-6 empty:before:content-['Start_writing_something_beautiful...'] empty:before:text-editor-muted/60 empty:before:italic"
         />
       </div>
       <div className="fixed bottom-6 right-6 text-sm text-editor-muted animate-fade-in">
