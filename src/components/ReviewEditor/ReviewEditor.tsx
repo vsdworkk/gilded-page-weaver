@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { ReviewProgress } from './Progress';
-import { Editor } from '../Editor/Editor';
+import Editor from '../Editor/Editor';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Save, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
